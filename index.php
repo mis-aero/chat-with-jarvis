@@ -15,31 +15,32 @@ $timestamp = $arrJson["events"][0]["timestamp"];
 
 $data = json_decode($json);
 
+$userMessage = $arrJson['events'][0]['message']['text'];
 
-	if($userMessage == "stock"){
-		$arrPostData = array();
-		$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-		$arrPostData['messages'][0]['type'] = "text";
-		$arrPostData['messages'][0]['text'] = "Query Stock";
-	}
-	else if($userMessage == "invoice"){
-		$arrPostData = array();
-		$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-		$arrPostData['messages'][0]['type'] = "text";
-		$arrPostData['messages'][0]['text'] = "Query Invoice";
-	}
-	else if($userMessage == "quotation"){
-		$arrPostData = array();
-		$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-		$arrPostData['messages'][0]['type'] = "text";
-		$arrPostData['messages'][0]['text'] = "Query Quotation";
-	}
-	else{
-		$arrPostData = array();
-		$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-		$arrPostData['messages'][0]['type'] = "text";
-		$arrPostData['messages'][0]['text'] = "เลือกเมนูได้เลยครับ";
-	}
+if($userMessage == "stock"){
+	$arrPostData = array();
+	$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+	$arrPostData['messages'][0]['type'] = "text";
+	$arrPostData['messages'][0]['text'] = "Query Stock";
+}
+else if($userMessage == "invoice"){
+	$arrPostData = array();
+	$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+	$arrPostData['messages'][0]['type'] = "text";
+	$arrPostData['messages'][0]['text'] = "Query Invoice";
+}
+else if($userMessage == "quotation"){
+	$arrPostData = array();
+	$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+	$arrPostData['messages'][0]['type'] = "text";
+	$arrPostData['messages'][0]['text'] = "Query Quotation";
+}
+else{
+	$arrPostData = array();
+	$arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+	$arrPostData['messages'][0]['type'] = "text";
+	$arrPostData['messages'][0]['text'] = "เลือกเมนูได้เลยครับ";
+}
 
 
 $channel = curl_init();
